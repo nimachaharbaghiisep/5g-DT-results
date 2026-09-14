@@ -64,7 +64,7 @@ The signed height error is not a column; compute it as `est_z - gt_z`.
  
 ## Antenna geometry
  
-![Antenna placement on the EURECOM campus](eurecom_map.png)
+![Antenna placement on the EURECOM campus](eurecom_map.drawio.png)
  
 *The physical GEO-5G deployment: RU1 and RU2, four elements each, with the
 area used for the hardware campaign marked. Site map reproduced from the
