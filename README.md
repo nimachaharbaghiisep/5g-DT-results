@@ -18,11 +18,32 @@ no uncertainty of its own, and the emulator is deterministic, so a sweep
 repeated under identical conditions reproduces its values exactly rather than
 to within a tolerance.
 
-**Table of Contents**
-
-[[_TOC_]]
-
+**Contents**
+ 
+- [1. Repository layout](#1-repository-layout)
+- [2. The experiment](#2-the-experiment)
+  - [2.1 Antenna geometry](#21-antenna-geometry)
+  - [2.2 Radio configuration](#22-radio-configuration)
+- [3. Results](#3-results)
+  - [3.1 Column reference](#31-column-reference)
+  - [3.2 Verification](#32-verification)
+  - [3.3 Reading the data](#33-reading-the-data)
+- [4. Reproducing a sweep](#4-reproducing-a-sweep)
+  - [4.1 System overview](#41-system-overview)
+  - [4.2 Prerequisites](#42-prerequisites)
+  - [4.3 Ray-tracing channel emulator](#43-ray-tracing-channel-emulator)
+  - [4.4 OAI gNB and NR-UE](#44-oai-gnb-and-nr-ue)
+  - [4.5 OAI CN5G and the LMF](#45-oai-cn5g-and-the-lmf)
+  - [4.6 Launch order](#46-launch-order)
+  - [4.7 Running the sweep](#47-running-the-sweep)
+  - [4.8 Shutdown](#48-shutdown)
+- [5. Troubleshooting](#5-troubleshooting)
+- [6. Software state](#6-software-state)
+- [7. Citation](#7-citation)
+- [8. Licence](#8-licence)
 ---
+ 
+
 
 ## 1. Repository layout
 
