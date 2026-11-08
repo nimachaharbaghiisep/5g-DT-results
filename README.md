@@ -272,7 +272,7 @@ raytracing-channel-emulator (main.py)
 ```bash
 git clone https://gitlab.eurecom.fr/oai/raytracing-channel-emulator.git
 cd raytracing-channel-emulator
-git checkout origin/eurecom_simulation_godot_integration
+git checkout develop
 
 python3 -m venv myvenv
 source myvenv/bin/activate
@@ -316,7 +316,7 @@ first:
 ```bash
 git clone git@gitlab.eurecom.fr:oai/cn5g/oai-cn5g-lmf.git
 cd oai-cn5g-lmf
-git checkout fix-unit-mismatch
+git checkout develop
 sudo docker build \
   --build-arg TARGETPLATFORM=linux/amd64 \
   -f docker/Dockerfile.lmf.ubuntu \
@@ -503,18 +503,28 @@ grep -rn NR_SRS_IDFT_OVERSAMP_FACTOR ~/openairinterface5g/openair1/PHY/defs_gNB.
 
 ## 6. Software state
 
-| Component | Repository | Branch |
-|---|---|---|
-| Ray-tracing channel emulator | `gitlab.eurecom.fr/oai/raytracing-channel-emulator` | `eurecom_simulation_godot_integration` |
-| OAI RAN | `github.com/duranta-project/openairinterface5g` | `develop` |
-| OAI CN5G | images pulled by `docker-compose-positioning.yaml` | |
-| OAI LMF | `gitlab.eurecom.fr/oai/cn5g/oai-cn5g-lmf` | built locally as `oai-lmf:new`, see Section 4.5 |
+All three source repositories are tracked on `develop`.
 
-Two things are not captured by a branch name. The oversampling factor above is
-a compile-time constant. And a branch moves, so a reader checking out these
-branches at a later date will not necessarily obtain the code that produced the
-files in `results/`. Recording the commit hash of each repository would pin
-them; that is the one piece of provenance this repository does not yet carry.
+| Component | Repository | Branch | Commit |
+|---|---|---|---|
+| Ray-tracing channel emulator | `gitlab.eurecom.fr/oai/raytracing-channel-emulator` | `develop` | `8109c6c9` |
+| OAI RAN | `github.com/duranta-project/openairinterface5g` | `develop` | `dfb296ab` |
+| OAI LMF | `gitlab.eurecom.fr/oai/cn5g/oai-cn5g-lmf` | `develop` | `ec8845e8` |
+| OAI CN5G | images pulled by `docker-compose-positioning.yaml` | | image tags as pulled |
+
+**Read these hashes as "last verified against", not as "used to produce
+`results/`".** They are the heads of `develop` as of November 2026. The commit
+each tree stood at when the sweeps were built was not recorded at the time, and
+`develop` has moved since: a reader checking out the hashes above will obtain a
+working stack, but not byte-for-byte the one behind these CSVs. Where a figure
+has to be reproduced exactly rather than approximately, that gap matters, and
+it is the one piece of provenance this repository cannot supply retroactively.
+
+Two further things no hash captures. The oversampling factor of Section 2.2 is
+a compile-time constant, so two builds from the same commit differ if it
+differs. And the CN5G network functions are pulled as container images rather
+than built, so their state is pinned by the tags in
+`docker-compose-positioning.yaml` rather than by a commit.
 
 ---
 
@@ -522,10 +532,10 @@ them; that is the one piece of provenance this repository does not yet carry.
 
 If you use this data, please cite the paper it supports:
 
-> N. Chaharbaghi, F. Kaltenberger, B. Podrygajlo and R. Mundlamuri,
-> "A Ray-Traced Digital Twin for UL-TDoA Positioning in a Distributed-Antenna
-> 5G Testbed," submitted to the IEEE/IFIP Wireless On-Demand Network Systems
-> and Services Conference (WONS), 2027.
+> N. Chaharbaghi, F. Kaltenberger, B. Podrygajlo, R. Mundlamuri and
+> R. Verdone, "A Ray-Traced Digital Twin for 5G NR Positioning with
+> OpenAirInterface," submitted to the IEEE/IFIP Wireless On-Demand Network
+> Systems and Services Conference (WONS), 2027.
 
 ```bibtex
 @inproceedings{chaharbaghi2027digitaltwin,
