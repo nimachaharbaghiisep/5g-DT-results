@@ -530,9 +530,10 @@ If you use this data, please cite the paper it supports:
 ```bibtex
 @inproceedings{chaharbaghi2027digitaltwin,
   author    = {Chaharbaghi, Nima and Kaltenberger, Florian and
-               Podrygajlo, Bartosz and Mundlamuri, Rakesh},
-  title     = {A Ray-Traced Digital Twin for {UL-TDoA} Positioning in a
-               Distributed-Antenna {5G} Testbed},
+               Podrygajlo, Bartosz and Mundlamuri, Rakesh and
+               Verdone, Roberto},
+  title     = {A Ray-Traced Digital Twin for {5G NR} Positioning
+               with {OpenAirInterface}},
   booktitle = {IEEE/IFIP Wireless On-Demand Network Systems and Services
                Conference (WONS)},
   year      = {2027},
